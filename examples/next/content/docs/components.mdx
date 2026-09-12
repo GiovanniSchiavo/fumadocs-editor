@@ -1,0 +1,59 @@
+---
+title: MDX Components
+description: Interleaving JSX with Markdown
+icon: Blocks
+---
+
+## Callout
+
+<Callout title="Heads up">
+  MDX components keep working when the page is edited from the browser.
+</Callout>
+
+## Cards
+
+<Cards>
+  <Card title="Basic Markdown" href="/docs/basic" />
+  <Card title="Code Heavy" href="/docs/code-heavy" />
+</Cards>
+
+## Tabs
+
+<CodeBlockTabs defaultValue="npm">
+  <CodeBlockTabsList>
+    <CodeBlockTabsTrigger value="npm">npm</CodeBlockTabsTrigger>
+    <CodeBlockTabsTrigger value="pnpm">pnpm</CodeBlockTabsTrigger>
+  </CodeBlockTabsList>
+
+  <CodeBlockTab value="npm">
+    ```bash
+    npm install fumadocs-editor
+    ```
+  </CodeBlockTab>
+
+  <CodeBlockTab value="pnpm">
+    ```bash
+    pnpm add fumadocs-editor
+    ```
+  </CodeBlockTab>
+</CodeBlockTabs>
+
+## Imported component
+
+import { Since } from "@/components/since";
+
+<Since version="0.1.0" />
+
+The preview ignores the import statement itself and resolves `Since` through
+the components registered in `components/mdx.tsx`.
+
+## Component defined in the document
+
+export function Badge({ children }) {
+  return <strong>{children}</strong>;
+}
+
+<Badge>Defined inline with an export</Badge>
+
+Custom components registered in `components/mdx.tsx` are available both on the
+page and in the editor preview.

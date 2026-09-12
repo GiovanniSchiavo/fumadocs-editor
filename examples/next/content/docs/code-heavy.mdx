@@ -1,0 +1,32 @@
+---
+title: Code Heavy
+description: Code fences, JSX, HTML and tricky characters
+icon: Code
+---
+
+Text with `inline code`, <kbd>HTML</kbd> and symbols: `<` `>` `{` `}` `&` `"` `'`.
+
+```tsx
+import { Tabs } from 'somewhere';
+
+export function Demo({ value = 97 }: { value?: number }) {
+  return (
+    <div className="p-4">
+      {value > 10 ? 'big' : 'small'}
+    </div>
+  );
+}
+```
+
+```html
+<div data-x="1">text &amp; entities</div>
+```
+
+<Callout type="warn" title="MDX + code">
+  Mixing JSX and fenced code must survive the editor round-trip.
+</Callout>
+
+| Column | Value |
+| ------ | ----- |
+| a      | 1     |
+| b      | 2     |

@@ -1,0 +1,95 @@
+{
+  "name": "fumadocs-editor",
+  "version": "0.1.28",
+  "description": "Inline editing for Fumadocs, backed by Git pull requests.",
+  "type": "module",
+  "license": "MIT",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./format": {
+      "types": "./dist/format.d.ts",
+      "import": "./dist/format.js"
+    },
+    "./server": {
+      "types": "./dist/server/index.d.ts",
+      "import": "./dist/server/index.js"
+    },
+    "./github": {
+      "types": "./dist/github/index.d.ts",
+      "import": "./dist/github/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "example:build": "pnpm --filter fumadocs-editor-example-next build",
+    "example:dev": "pnpm --filter fumadocs-editor-example-next dev",
+    "example:types:check": "pnpm --filter fumadocs-editor-example-next types:check",
+    "lint": "biome check",
+    "format": "biome format --write",
+    "test": "vitest run",
+    "types:check": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "fumadocs-core": "^16.15.0",
+    "fumadocs-ui": "^16.15.0",
+    "prettier": ">=3",
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "prettier": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@codemirror/autocomplete": "^6.20.3",
+    "@codemirror/lang-markdown": "^6.5.2",
+    "@codemirror/lang-yaml": "^6.1.3",
+    "@codemirror/language": "^6.12.4",
+    "@codemirror/language-data": "^6.5.2",
+    "@codemirror/lint": "^6.9.7",
+    "@codemirror/state": "^6.7.4",
+    "@codemirror/view": "^6.43.11",
+    "@lezer/highlight": "^1.2.3",
+    "@mdx-js/mdx": "^3.1.1",
+    "codemirror": "^6.0.2",
+    "idb-keyval": "^6.3.0",
+    "jose": "^6.2.12",
+    "lucide-react": "^1.43.0",
+    "remark-lint": "^10.0.1",
+    "remark-lint-code-block-style": "^4.0.1",
+    "remark-lint-fenced-code-flag": "^4.2.0",
+    "remark-lint-final-newline": "^3.0.1",
+    "remark-lint-heading-increment": "^4.0.1",
+    "remark-lint-list-item-indent": "^4.0.1",
+    "remark-lint-no-blockquote-without-marker": "^6.0.1",
+    "remark-lint-no-consecutive-blank-lines": "^5.0.1",
+    "remark-lint-no-duplicate-definitions": "^4.0.1",
+    "remark-lint-no-heading-content-indent": "^5.0.1",
+    "remark-lint-no-undefined-references": "^5.0.2",
+    "remark-lint-no-unused-definitions": "^4.0.2",
+    "yaml": "^2.9.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.12",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "fumadocs-core": "^16.15.9",
+    "fumadocs-ui": "npm:@fumadocs/base-ui@^16.15.9",
+    "prettier": "^3.9.6",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.0",
+    "vitest": "^5.0.0"
+  }
+}
